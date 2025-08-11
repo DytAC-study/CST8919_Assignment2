@@ -40,9 +40,15 @@
 
 **Strengths / Weaknesses**
 
-- **Azure:** ✅ Rich conditional access, PIM; 🔸 Licensing complexity (P1 vs P2 vs B2C).
-- **AWS:** ✅ Fine‑grained IAM & role assumption; 🔸 End‑user identity needs **Cognito** (separate service).
-- **GCP:** ✅ BeyondCorp/IAP model; 🔸 Split between Cloud Identity vs Identity Platform can confuse new teams.
+- **Azure:** 
+  - **Strengths**: Rich conditional access, PIM; 
+  - **Weaknesses**: Licensing complexity (P1 vs P2 vs B2C).
+- **AWS:** 
+  - **Strengths**: Fine‑grained IAM & role assumption; 
+  - **Weaknesses**: End‑user identity needs **Cognito** (separate service).
+- **GCP:** 
+  - **Strengths**: BeyondCorp/IAP model; 
+  - **Weaknesses**: Split between Cloud Identity vs Identity Platform can confuse new teams.
 
 ------
 
@@ -66,9 +72,15 @@
 
 **Strengths / Weaknesses**
 
-- **Azure:** ✅ KQL power; rich PaaS diagnostic connectors. 🔸 Ingestion costs can spike without sampling.
-- **AWS:** ✅ Tight with eventing (SNS/EventBridge). 🔸 Multiple consoles (Logs, Metrics, X‑Ray) can feel fragmented.
-- **GCP:** ✅ Strong BigQuery integration for analytics. 🔸 Query language differences vs KQL require relearning.
+- **Azure:** 
+  - **Strengths**: KQL power; rich PaaS diagnostic connectors. 
+  - **Weaknesses**: Ingestion costs can spike without sampling.
+- **AWS:** 
+  - **Strengths**: Tight with eventing (SNS/EventBridge). 
+  - **Weaknesses**: Multiple consoles (Logs, Metrics, X‑Ray) can feel fragmented.
+- **GCP:** 
+  - **Strengths**: Strong BigQuery integration for analytics. 
+  - **Weaknesses**: Query language differences vs KQL require relearning.
 
 ------
 
@@ -91,9 +103,15 @@
 
 **Strengths / Weaknesses**
 
-- **Azure:** ✅ Rich effects (`DeployIfNotExists`); initiatives scale well. 🔸 Authoring JSON with aliases has a learning curve.
-- **AWS:** ✅ SCPs provide hard guardrails; Config rules cover deep resource posture. 🔸 Config pricing can add up at scale.
-- **GCP:** ✅ Simple constraints for common needs; strong K8s policy via Gatekeeper. 🔸 Fewer turnkey constraints vs Azure’s effects.
+- **Azure:** 
+  - **Strengths**: Rich effects (`DeployIfNotExists`); initiatives scale well. 
+  - **Weaknesses**: Authoring JSON with aliases has a learning curve.
+- **AWS:** 
+  - **Strengths**: SCPs provide hard guardrails; Config rules cover deep resource posture. 
+  - **Weaknesses**: Config pricing can add up at scale.
+- **GCP:** 
+  - **Strengths**: Simple constraints for common needs; strong K8s policy via Gatekeeper. 
+  - **Weaknesses**: Fewer turnkey constraints vs Azure’s effects.
 
 ------
 
@@ -116,9 +134,15 @@
 
 **Strengths / Weaknesses**
 
-- **Azure:** ✅ Unified experience; deep Defender plans. 🔸 Feature licensing matrix to manage.
-- **AWS:** ✅ Highly modular; best‑of‑breed detections. 🔸 Pricing/coverage scattered across services.
-- **GCP:** ✅ SCC Premium breadth; strong container/security analytics ties. 🔸 Some advanced detections gated to higher tiers.
+- **Azure:** 
+  - **Strengths**: Unified experience; deep Defender plans. 
+  - **Weaknesses**: Feature licensing matrix to manage.
+- **AWS:** 
+  - **Strengths**: Highly modular; best‑of‑breed detections. 
+  - **Weaknesses**: Pricing/coverage scattered across services.
+- **GCP:** 
+  - **Strengths**: SCC Premium breadth; strong container/security analytics ties. 
+  - **Weaknesses**: Some advanced detections gated to higher tiers.
 
 ------
 
@@ -142,14 +166,14 @@
 **Strengths / Weaknesses**
 
 - **Azure:** 
-  - **Strength**: First‑party connectors and KQL; built‑in SOAR. 
-  - **Weakness**: Ingestion costs require governance (commitment tiers/archiving).
+  - **Strengths**: First‑party connectors and KQL; built‑in SOAR. 
+  - **Weaknesses**: Ingestion costs require governance (commitment tiers/archiving).
 - **AWS:** 
-  - **Strength**: Flexible lake architecture; choose best‑fit SIEM. 
-  - **Weakness**: DIY assembly increases complexity/time‑to‑value.
+  - **Strengths**: Flexible lake architecture; choose best‑fit SIEM. 
+  - **Weaknesses**: DIY assembly increases complexity/time‑to‑value.
 - **GCP:** 
-  - **Strength**: Managed SIEM/SOAR at scale. 
-  - **Weakness**: Licensing/tier clarity needed early.
+  - **Strengths**: Managed SIEM/SOAR at scale. 
+  - **Weaknesses**: Licensing/tier clarity needed early.
 
 ------
 
@@ -162,6 +186,8 @@
 - **Threat Modeling & Runbooks**: Define playbooks for common incidents (credential stuffing, brute force, anomalous admin activity) and codify remediation (Logic Apps / Lambda / Cloud Functions).
 - **Data Residency**: Enforce allowed regions via Azure Policy / SCPs / Org Policy; audit exceptions.
 
+![](./appendix/images/devsecops.png)
+
 ------
 
 ## 7) Pricing Considerations (High‑Level)
@@ -171,8 +197,6 @@
 - **Policy**: Azure Policy/Org Policy/SCPs usually no direct charge; **AWS Config** charges per rule/resource evaluation.
 - **CSPM/CWPP**: Defender plans per resource; AWS split pricing (GuardDuty, Inspector, Security Hub, Detective); GCP SCC Premium subscription + per‑feature costs.
 - **SIEM/SOAR**: Sentinel per‑GB or commitment; AWS components (S3/Athena/OpenSearch) + partner SIEM; Chronicle subscription/ingest.
-
-> **Tip:** Control telemetry costs with sampling, filters, archival policies, and “hot vs cold” storage tiers.
 
 ------
 
@@ -187,45 +211,9 @@ These mirror my prior course labs/assignments (Auth0 login, brute‑force detect
 
 ------
 
-## 9) References
-
-- Azure/Microsoft, AWS, and Google Cloud official docs and trust centers for each service (identity, monitoring, policy, security posture, SIEM).
-- OIDC/OAuth2 specs; OpenTelemetry; OCSF/ASIM schemas.
-
-------
-
-## Appendix A – Narrative Deep Dives
+## Appendix A – References and Additional Notes
 
 [Appendix-A](./appendix/AppendixA.md)
-
-**Overview**
- One‑paragraph service description across clouds.
-
-**Core Features**
-
-- Azure: …
-- AWS: …
-- GCP: …
-
-**Security & Compliance**
-
-- Controls, certifications (ISO/SOC/PCI/HIPAA/FedRAMP) – confirm scope per provider trust center.
-
-**Pricing Model**
-
-- Azure: …
-- AWS: …
-- GCP: …
-
-**Integration for DevSecOps**
-
-- Pipelines, policy‑as‑code, observability hooks, authorizers.
-
-**Strengths & Weaknesses**
-
-- Azure: …
-- AWS: …
-- GCP: …
 
 ------
 
